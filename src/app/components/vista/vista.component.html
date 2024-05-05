@@ -1,0 +1,80 @@
+vista
+<div>
+    <h1>{{titulo}}</h1>
+</div>
+<div>{{usuarios}}</div>
+<div class="col-md-4" *ngFor=" let i=index, let fila of usuarios">
+    <!--{{usuario.nombre}}-->
+    {{i}}
+    {{fila.nombre}}
+    {{fila.email}}
+    <div *ngIf="fila.rol=='admin'; else user">{{fila.nombre}} <b>es el admin ;)</b></div>
+    <ng-template #user>
+        <div>{{fila.nombre}} <em>es el user :D</em></div>
+    </ng-template>
+</div>
+<div class="component" *ngIf="revelar">
+    <div class="col-md-4" *ngFor=" let usuario of usuarios">
+        <!--{{usuario.nombre}}-->
+        {{usuario.nombre}}
+        <div *ngIf="usuario.rol=='admin'; else user">{{usuario.nombre}} <b>es el admin ;)</b></div>
+        <ng-template #user>{{usuario.nombre}} <b>es el user :D</b></ng-template>
+    </div>
+
+    <table border="1">
+        <thead>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>password</th>
+            <th>Accion</th>
+        </thead>
+        <tbody *ngIf="usuarios.length > 0; else fila">
+            <tr *ngFor=" let usuario of usuarios">
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.password}}</td>
+                <td><button>?</button></td>
+            </tr>
+        </tbody>
+        <ng-template #fila>
+            <tbody>
+                <tr>
+                    <td colspan="4">No hay mas filas</td>
+                </tr>
+            </tbody>
+        </ng-template>
+    </table>
+</div>
+<form (submit)="procesar()" method="get">
+    <button type="submit" class="btn btn-success btn-block">Enviar</button>
+</form>
+
+<form (submit)="procesar()" method="post">
+    <fieldset>
+        <legend>Seleccion multiple</legend>
+        <table border="2">
+            <thead>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>password</th>
+                <th>Accion</th>
+            </thead>
+            <tbody *ngIf="usuarios.length > 0; else fila">
+                <tr *ngFor=" let usuario of usuarios">
+                    <td>{{usuario.id}}</td>
+                    <td>{{usuario.nombre}}</td>
+                    <td>{{usuario.password}}</td>
+                    <td><input type="checkbox" value="{{usuario.id}}" (click)="addRemoveItem($event)"></td>
+                </tr>
+            </tbody>
+            <ng-template #fila>
+                <tbody>
+                    <tr>
+                        <td colspan="4">No hay mas filas</td>
+                    </tr>
+                </tbody>
+            </ng-template>
+        </table>
+        <button class="">Enviar</button>
+    </fieldset>
+</form>

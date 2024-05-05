@@ -1,0 +1,23 @@
+.formBody {
+    padding: 20px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formBody p {
+    display: flex;
+    flex-direction: column;
+}
+
+.formBody input {
+    width: 250px;
+}
+
+.formBody .loginButton {
+    background-color: green;
+    border-radius: 8px;
+    border: none;
+    color: white;
+}
