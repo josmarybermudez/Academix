@@ -22,10 +22,10 @@ import { UsuariosGestionarComponent } from './components/usuarios-gestionar/usua
     UsuariosIngresarComponent,
     UsuariosRegistrarComponent,
     UsuariosListarComponent,
-    UsuariosGestionarComponent,
     VistaComponent,
     UsuariosPrincipalComponent,
     UsuariosHomeComponent,
+    UsuariosGestionarComponent,
   ],
   imports: [
     BrowserModule,
