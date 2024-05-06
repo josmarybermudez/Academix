@@ -8,7 +8,7 @@ import { Usuario } from "src/app/models/usuarioModel";
 
 export class UsuariosService {
   API_URI = 'http://localhost:3000/user';
-  usuarios: Usuario[];
+  usuarios: Usuario[] = [];
 
   constructor(/*private http: HttpClient*/) {
     this.usuarios = [{
@@ -57,25 +57,61 @@ export class UsuariosService {
     //return this.http.get(`${this.API_URI}/find/${id}`);
   }
 
-  validarUsuario(username: string, password: string) {
-    const found = this.usuarios.find((user) => user.nombre === username && user.password === password);
+  validarUsuario(email: string, password: string) {
+    const found = this.usuarios.find((user) => user.email === email && user.password === password);
     return !!found
+  }
+
+  identificarTipoUsuario(email: string) {
+    const findUser = this.usuarios.find((user) => user.email === email);
+    return findUser
   }
 
   guardarUsuarios(usuariosGuardar: Usuario[]) {
     //Recibe un array de usuarios y lo guarda. Sobreescribe el contenido previo.
-    this.usuarios = usuariosGuardar;
+    // this.usuarios = usuariosGuardar;
     //console.log(this.usuarios);
+    if (Array.isArray(usuariosGuardar)) {
+      this.usuarios = usuariosGuardar;
+    }
   }
 
+  // guardarUsuariosLocal() {
+  //   //Guarda los usuarios del objeto en el LocalStorage
+  //   localStorage.setItem("Usuarios", JSON.stringify(this.usuarios));
+  // }
   guardarUsuariosLocal() {
-    //Guarda los usuarios del objeto en el LocalStorage
+   //Guarda los usuarios del objeto en el LocalStorage
     localStorage.setItem("Usuarios", JSON.stringify(this.usuarios));
   }
 
+  guardarUsuarioLogeado(email: string) {
+    //Guarda los usuarios del objeto en el LocalStorage
+    const findUser = this.usuarios.find((user) => user.email === email);
+    const findUserRole = this.usuarios.find((user) => user.email === email)?.rol;
+
+    localStorage.setItem("UsuarioActual", JSON.stringify(findUser));
+    localStorage.setItem("UsuarioActualRol", findUserRole || '');
+  }
+
+  obtenerUsuarioLogeado() {
+		return localStorage.getItem('UsuarioActual');
+  }
+
+  obtenerRolUsuarioLogeado() {
+    console.log(localStorage.getItem('UsuarioActualRol'))
+		return localStorage.getItem('UsuarioActualRol');
+  }
+  // cargarUsuariosLocal() {
+  //   //Carga los usuarios desde el objeto en el LocalStorage
+  //   this.usuarios = JSON.parse(localStorage.getItem("Usuarios") || '{}');
+  // }
+
   cargarUsuariosLocal() {
-    //Carga los usuarios desde el objeto en el LocalStorage
-    this.usuarios = JSON.parse(localStorage.getItem("Usuarios") || '{}');
+    const storedUsuarios = localStorage.getItem("Usuarios");
+    if (storedUsuarios) {
+      this.usuarios = JSON.parse(storedUsuarios);
+    }
   }
 
   setToken() {
@@ -90,5 +126,7 @@ export class UsuariosService {
 
   logOut(){
 		localStorage.removeItem('token');
+		localStorage.removeItem('UsuarioActual');
+		localStorage.removeItem('UsuarioActualRol');
 	}
 }

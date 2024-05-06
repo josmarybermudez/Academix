@@ -1,0 +1,42 @@
+section.hero-section {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    background: url('src/assets/media/images/home-bg.jpg') no-repeat center/cover;
+    justify-content: center;
+}
+
+.text-container {
+    padding: 50px ;
+}
+
+section.hero-section > .text-container {
+    width: 480px;
+}
+
+h2, p {
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.first-panel-section {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    background: rgb(254, 253, 253) no-repeat center/cover;
+    justify-content: center;
+}
+
+.first-panel-section > .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-panel-section-text {
+    color: rgb(45, 45, 102);
+    text-shadow: none;
+    font-size: 24px;
+    font-weight: bold;
+}

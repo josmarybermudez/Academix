@@ -6,12 +6,18 @@ import { UsuariosPrincipalComponent } from './components/usuarios-principal/usua
 import { UsuariosHomeComponent } from './components/usuarios-home/usuarios-home.component';
 import { UsuariosIngresarComponent } from './components/usuarios-ingresar/usuarios-ingresar.component';
 import { AuthGuard } from './auth.guard';
+import { UsuariosGestionarComponent } from './components/usuarios-gestionar/usuarios-gestionar.component';
 
 const routes: Routes = [
 	{
 		path: '',
 		redirectTo: 'usuarios/principal',
 		pathMatch: 'full'
+	},
+	{
+		path: 'usuarios/gestionar',
+		component: UsuariosGestionarComponent,
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'usuarios/listar',

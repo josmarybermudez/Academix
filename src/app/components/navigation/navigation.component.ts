@@ -27,8 +27,17 @@ export class NavigationComponent implements OnInit {
   }
 
   shouldShowLogOutButton():Boolean {
-    console.log(this.usuariosService.isLoggedIn(), "holis")
+    // console.log(localStorage, "localStorage")
     return this.usuariosService.isLoggedIn();
+  }
+
+  shouldShowListButton() {
+    // console.log(this.usuariosService.obtenerRolUsuarioLogeado())
+    return this.usuariosService.obtenerRolUsuarioLogeado() === 'user'
+  }
+
+  shouldShowAdminButton() {
+    return this.usuariosService.obtenerRolUsuarioLogeado() === 'admin'
   }
 
   ngOnInit(): void {

@@ -21,3 +21,8 @@
     border: none;
     color: white;
 }
+
+.errorCredentials {
+    color: red;
+    font-weight: 500;
+}

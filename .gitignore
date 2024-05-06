@@ -1,1 +1,33 @@
-node_modules
+# Node artifacts
+/dist/
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Compiled output
+*.js
+*.js.map
+*.css
+*.css.map
+
+# Dependency directories
+/jspm_packages/
+/bower_components/
+
+# Typescript generated files
+*.d.ts
+*.js.map
+
+# IDE files
+.idea/
+.vscode/
+*.code-workspace
+
+# Miscellaneous
+*.log
+*.zip
+*.gz
+*.tar
+
+# Environment variables
+.env

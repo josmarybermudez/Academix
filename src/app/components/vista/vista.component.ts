@@ -49,7 +49,7 @@ export class VistaComponent implements OnInit {
     this.usuariosService.guardarUsuarios(listaUsuarios);
     this.usuariosService.guardarUsuarios(listaUsuarios);
     this.usuariosService.guardarUsuariosLocal();
-    this.router.navigate(['usuarios/listar']);
+    // this.router.navigate(['usuarios/listar']);
   }
 
   addRemoveItem($event: any): void {

@@ -1,7 +1,10 @@
 <form class="formBody" (submit)="onSubmit()">
-    <label>Username</label>
-        <input type="text" [(ngModel)]="username" name="username" size="40" maxlength="20" required />
-        <label>Password</label>
-        <input type="password" [(ngModel)]="password" name="password" size="40" maxlength="20" required/>
+    <label>Email</label>
+    <input type="text" [(ngModel)]="email" name="email" size="40" maxlength="20" required />
+    <label>Password</label>
+    <input type="password" [(ngModel)]="password" name="password" size="40" maxlength="20" required/>
     <input class="loginButton" type="submit" value="Log In">
+    <p *ngIf="invalidUserError" class="errorCredentials">
+        Credentiales incorrectas, intente de nuevo!
+    </p>
 </form>

@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import { UsuariosPrincipalComponent } from './components/usuarios-principal/usuarios-principal.component';
 import { UsuariosHomeComponent } from './components/usuarios-home/usuarios-home.component';
 import { AuthGuard } from './auth.guard';
+import { UsuariosGestionarComponent } from './components/usuarios-gestionar/usuarios-gestionar.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AuthGuard } from './auth.guard';
     UsuariosIngresarComponent,
     UsuariosRegistrarComponent,
     UsuariosListarComponent,
+    UsuariosGestionarComponent,
     VistaComponent,
     UsuariosPrincipalComponent,
     UsuariosHomeComponent,
