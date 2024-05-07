@@ -13,6 +13,10 @@ section.hero-section {
         height: 400px;
         background-position-x: 60%;
     }
+    @media (max-width: 450px) {
+        height: 380px;
+        background-position-x: 70%;
+    }
 }
 
 .text-container {

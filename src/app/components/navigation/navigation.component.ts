@@ -27,13 +27,11 @@ export class NavigationComponent implements OnInit {
   }
 
   shouldShowLogOutButton():Boolean {
-    // console.log(localStorage, "localStorage")
     return this.usuariosService.isLoggedIn();
   }
 
   shouldShowListButton() {
-    // console.log(this.usuariosService.obtenerRolUsuarioLogeado())
-    return this.usuariosService.obtenerRolUsuarioLogeado() === 'user'
+    return this.usuariosService.obtenerRolUsuarioLogeado() === 'usuario'
   }
 
   shouldShowAdminButton() {
