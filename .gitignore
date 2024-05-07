@@ -35,3 +35,4 @@ yarn-error.log
 .angular/cache
 
 .DS_Store
+src/.DS_Store

@@ -4,6 +4,15 @@ section.hero-section {
     flex-direction: column;
     background: url(src/assets/media/images/hero-bg.webp) no-repeat center/cover;
     justify-content: center;
+
+    @media (max-width: 940px) {
+        height: 500px;
+        background-position-x: 60%;
+    }
+    @media (max-width: 600px) {
+        height: 400px;
+        background-position-x: 60%;
+    }
 }
 
 .text-container {
@@ -11,7 +20,13 @@ section.hero-section {
 }
 
 section.hero-section > .text-container {
-    width: 560px;
+    max-width: 560px;
+
+    @media (max-width: 600px) {
+        max-width: 370px;
+        padding: 10px 50px ;
+        box-sizing: border-box;
+    }
 }
 
 h1, p {
@@ -25,6 +40,10 @@ h1, p {
     flex-direction: column;
     background: rgb(254, 253, 253) no-repeat center/cover;
     justify-content: center;
+
+    @media (max-width: 600px) {
+        height: auto;
+    }
 }
 
 .first-panel-section > .text-container {
@@ -39,6 +58,14 @@ h1, p {
     text-shadow: none;
     font-size: 24px;
     font-weight: bold;
+    margin-bottom: 0;
+
+    @media (max-width: 940px) {
+        font-size: 20px;
+    }
+    @media (max-width: 600px) {
+        font-size: 18px;
+    }
 }
 
 .cta-redirect {
